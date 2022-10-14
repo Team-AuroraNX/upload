@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <title>画像バックアップ</title>
+  </head>
+  
+  <body>
+  <form method="post" action="https://script.google.com/macros/s/AKfycbxg1gqS68V9xmzUimVszvFYnqibst-CbBO5iKAiD6cGD4PqTzUuMTpMn-dQMj6S4F2Wjg/exec">
+    <p>
+      <label>記録日時 <input type="text" name="ab"></label>
+    </p>
+    <p>
+      <label>バックアップURL<input type="text" name="cd"></label>
+    </p>
+      <input type="submit" value="記録"　class="button"">
+    </p>
+  </form>
+  </body>
+
+<table border="1">
+  <tr>
+    <th>記録日時</th><th>バックアップURL</th>
+  </tr>
+  <tr>
+    <td><input type="text" id="a" name="a" style="border:none" readonly></td><td><input type="text" id="b" name="b" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="c" name="c" style="border:none" readonly></td><td><input type="text" id="d" name="d" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="e" name="e" style="border:none" readonly></td><td><input type="text" id="f" name="f" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="g" name="g" style="border:none" readonly></td><td><input type="text" id="b" name="g" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="h" name="h" style="border:none" readonly></td><td><input type="text" id="i" name="i" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="j" name="j" style="border:none" readonly></td><td><input type="text" id="k" name="k" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="l" name="l" style="border:none" readonly></td><td><input type="text" id="m" name="m" style="border:none" readonly></td>
+  </tr>
+</table>
+<script>
+    const endpoint = "https://script.google.com/macros/s/AKfycbwK-0q7z9EjXxQQbPTWzZ6A53NsECIoCOV0ILi73KFMHhqnCIEqNNRH1xIrfwVBPM5EFQ/exec";
+        
+        fetch(endpoint)
+        .then(response => response.json())
+        .then(data => {
+            const object = data;
+            $('input').each(function (index, element) {
+                if (object[0][$(element).attr('name')]) {
+                    $(element).val([object[0][$(element).attr('name')]]);
+                }
+            });
+        });
+</script>
+
+</html>
